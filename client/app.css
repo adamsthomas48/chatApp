@@ -3,3 +3,41 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.topNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #910404;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-item {
+    flex: 1;
+    color: white;
+    
+    margin-left: 10px;
+    padding: 10px 5px 5px 5px;
+    border-left: solid;
+    border-color: white;
+    max-width: 100px;
+    text-decoration: underline;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.logo {
+    flex: 2;
+    color: white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    font-weight: bolder;
+    
+}

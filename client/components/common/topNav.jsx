@@ -4,10 +4,9 @@ import { ApiContext } from '../../utils/api_context';
 import { AuthContext } from '../../utils/auth_context';
 import { RolesContext } from '../../utils/roles_context';
 import { Button } from '../common/button';
-import { Ping } from './ping';
-import { TopNav } from '../common/topNav';
 
-export const Home = () => {
+
+export const TopNav = () => {
   const [, setAuthToken] = useContext(AuthContext);
   const api = useContext(ApiContext);
   const roles = useContext(RolesContext);
@@ -34,22 +33,11 @@ export const Home = () => {
   }
 
   return (
-    <div>
-      <TopNav/>
-      <div className="p-4">
-        <h1>Welcome {user.firstName}</h1>
-        <Button type="button" onClick={logout}>
-          Logout
-        </Button>
-        {roles.includes('admin') && (
-          <Button type="button" onClick={() => navigate('/admin')}>
-            Admin
-          </Button>
-        )}
-        <section>
-          <Ping />
-        </section>
-      </div>
+    <div className="topNav">
+        <div className="logo">Chat App</div>
+        <div className="nav-item">Link 1</div>
+        <div className="nav-item">Link 2</div>
+        <div className="nav-item">Link 3</div>
     </div>
   );
 };
