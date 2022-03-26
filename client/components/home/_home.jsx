@@ -36,7 +36,7 @@ export const Home = () => {
   return (
     <div>
       <TopNav/>
-      <div className="p-4">
+      <div className="p-4 body">
         <h1>Welcome {user.firstName}</h1>
         <Button type="button" onClick={logout}>
           Logout

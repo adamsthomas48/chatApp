@@ -4,40 +4,29 @@ import { ApiContext } from '../../utils/api_context';
 import { AuthContext } from '../../utils/auth_context';
 import { RolesContext } from '../../utils/roles_context';
 import { Button } from '../common/button';
+import { TopNav } from '../common/topNav';
 
-
-export const TopNav = () => {
+export const ChatRoom = () => {
   const [, setAuthToken] = useContext(AuthContext);
   const api = useContext(ApiContext);
-  const roles = useContext(RolesContext);
+
 
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState(null);
   useEffect(async () => {
     const res = await api.get('/users/me');
     setUser(res.user);
     setLoading(false);
   }, []);
 
-  const logout = async () => {
-    const res = await api.del('/sessions');
-    if (res.success) {
-      setAuthToken(null);
-    }
-  };
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
   return (
-    <div className="topNav">
-        <div className="logo" onClick={() => navigate('/')}>Chat App</div>
-        <div className="nav-item" onClick={() => navigate('/chatroom')}>View ChatRoom</div>
-        <div className="nav-item">Link 2</div>
-        <div className="nav-button" onClick={logout}>Logout</div>
+    <div>
+      <TopNav/>
+      <div className="p-4">
+        <h1>Chat Room</h1>
+      </div>
     </div>
   );
 };
